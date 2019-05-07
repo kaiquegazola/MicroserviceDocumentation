@@ -1,0 +1,37 @@
+{
+  "name": "functions",
+  "description": "Cloud Functions for Firebase",
+  "scripts": {
+    "serve": "firebase serve --only functions",
+    "shell": "firebase functions:shell",
+    "start": "npm run shell",
+    "deploy": "firebase deploy --only functions",
+    "logs": "firebase functions:log"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "busboy": "^0.3.1",
+    "connect-memcached": "^1.0.0",
+    "connect-session-firebase": "^5.13.0",
+    "consolidate": "^0.15.1",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.16.4",
+    "express-flash": "0.0.2",
+    "express-messages": "^1.0.1",
+    "express-multipart-file-parser": "^0.1.2",
+    "express-session": "^1.15.6",
+    "express-validation": "^1.0.2",
+    "express-validator": "^5.3.1",
+    "firebase-admin": "^7.3.0",
+    "firebase-functions": "^2.2.1",
+    "fs": "0.0.1-security",
+    "handlebars": "^4.1.1",
+    "morgan": "^1.9.1",
+    "multer": "^1.4.1",
+    "path": "^0.12.7"
+  },
+  "private": true,
+  "engines": {
+    "node": "8"
+  }
+}

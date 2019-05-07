@@ -1,0 +1,553 @@
+{{> header }}
+
+<main>
+
+    <div class="container-fluid">
+
+        <section class="section team-section pb-4 m-lg-5 m-2">
+
+            <h2 class="font-weight-bold text-center h1 my-5"></h2>
+
+            <div class="row text-center text-md-left">
+                <div class="col-12 border">
+                    <form class="text-center m-5" style="color: #757575;" action="/painel/documentacao" method="POST">
+
+                        <p class="h4 pb-4">Cabeçalho e Descrição</p>
+
+                        <div class="form-row">
+
+                            <div class="col-md-4">
+                                <div class="md-form">
+                                    <div class="file-field">
+                                        <a class="btn-floating btn-sm btn-blue mt-0 float-left">
+                                            <i aria-hidden="true" class="fas fa-cloud-upload-alt"></i>
+                                            <input accept=".xpdl" name="arquivoXPDL" type="file">
+                                        </a>
+                                        <div class="file-path-wrapper">
+                                            <input class="file-path validate" placeholder="Arquivo XPDL" type="text">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-2">
+                                <div class="md-form">
+                                    <label for="versaoXPDL">Versão do documento</label>
+                                    <input class="form-control" id="versaoXPDL" name="versaoXPDL" type="text"
+                                        value="{{#if documentacao.versaoXPDL}}{{documentacao.versaoXPDL}}{{else}}v1.0.0+1{{/if}}">
+                                </div>
+                            </div>
+
+
+                            <div class="col-md-4">
+                                <div class="md-form">
+                                    <label for="ferramentaModelagem">Ferramenta de Modelagem</label>
+                                    <input class="form-control" id="ferramentaModelagem" name="ferramentaModelagem"
+                                        type="text" value="{{documentacao.ferramentaModelagem}}">
+                                </div>
+                            </div>
+
+                            <div class="col-md-2">
+                                <div class="md-form">
+                                    <label for="dataCriacao">Data de Criação</label>
+                                    <input class="form-control" id="dataCriacao" name="dataCriacao" type="text"
+                                        value="{{documentacao.dataCriacao}}">
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="md-form">
+                                    <label for="autor">Autor</label>
+                                    <input class="form-control" id="autor" name="autor" type="text"
+                                        value="{{documentacao.autor}}">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="md-form">
+                                    <textarea class="md-textarea form-control" id="descricao" name="descricao"
+                                        rows="3">{{documentacao.descricao}}</textarea>
+                                    <label for="descricao">Descrição</label>
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="col-md-2">
+                                <div class="md-form">
+                                    <label for="versao">Versão Microsserviço</label>
+                                    <input class="form-control" id="versao" name="versao" type="text"
+                                        value="{{documentacao.versao}}">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <p class="h4 pb-4">Links para repositório </p>
+
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="md-form">
+                                    <label for="link">Link *</label>
+                                    <input class="form-control" id="link" name="link" required type="text"
+                                        value="{{documentacao.link}}">
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="col">
+                                <div class="md-form">
+                                    <textarea class="md-textarea form-control" id="descricaoLink" name="descricaoLink"
+                                        rows="3">{{documentacao.descricaoLink}}</textarea>
+                                    <label for="descricaoLink">Descrição do Link</label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="h4 pb-4">Lista de Solicitações / Endpoints / Dependências <button type="button"
+                                class="btn btn-link btn-success btn-sm p-2" onclick="adicionarEndpoint();">+
+                                Adicionar</button></p>
+
+                        <div class="row pb-4">
+                            <div class="col-12">
+                                <div class="card-deck" id="endpoints">
+                                    {{#each documentacao.endPoints}}
+                                        <div class="card col-md-4 endpoint" id="{{@key}}">
+                                            <a class="btn-floating btn-action mdb-color btn-danger"><i
+                                                    class="fas fa-times"></i></a>
+                                            <div class="card-body">
+                                                <h4 class="card-title py-2" id="endpoint1Title"><a></a></h4>
+                                                <div class="form-row">
+                                                    <div class="col">
+                                                        <div class="md-form">
+                                                            <label for="nomeEndpoint1">Nome</label>
+                                                            <input class="form-control nomeEndpoint" id="nomeEndpoint1"
+                                                                name="endPoints[endpoint1][nomeEndpoint]" required
+                                                                type="text" value="{{this.nomeEndpoint}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col">
+                                                        <div class="md-form">
+                                                            <label for="descricaoEndpoint1">Descrição</label>
+                                                            <input class="form-control" id="descricaoEndpoint1"
+                                                                name="endPoints[endpoint1][descricaoEndpoint]"
+                                                                type="text" value="{{this.descricaoEndpoint}}">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col">
+                                                        <div class="md-form">
+                                                            <textarea class="md-textarea form-control"
+                                                                id="respostasEndpoint1"
+                                                                name="endPoints[endpoint1][respostasEndpoint]"
+                                                                rows="3">{{this.respostasEndpoint}}</textarea>
+                                                            <label for="respostasEndpoint1">Respostas</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col">
+                                                        <div class="md-form">
+                                                            <textarea class="md-textarea form-control"
+                                                                id="dependenciasEndpoint1"
+                                                                name="endPoints[endpoint1][dependenciasEndpoint]"
+                                                                rows="3">{{this.dependenciasEndpoint}}</textarea>
+                                                            <label for="dependenciasEndpoint1">Dependências</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {{else}}
+                                        <div class="card col-md-4 endpoint" id="endpoint1">
+                                            <a class="btn-floating btn-action mdb-color btn-danger"><i
+                                                    class="fas fa-times"></i></a>
+                                            <div class="card-body">
+                                                <h4 class="card-title py-2" id="endpoint1Title"><a></a></h4>
+                                                <div class="form-row">
+                                                    <div class="col">
+                                                        <div class="md-form">
+                                                            <label for="nomeEndpoint1">Nome *</label>
+                                                            <input class="form-control nomeEndpoint" id="nomeEndpoint1"
+                                                                name="endPoints[endpoint1][nomeEndpoint]" required
+                                                                type="text">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col">
+                                                        <div class="md-form">
+                                                            <label for="descricaoEndpoint1">Descrição *</label>
+                                                            <input class="form-control" id="descricaoEndpoint1"
+                                                                name="endPoints[endpoint1][descricaoEndpoint]" required
+                                                                type="text">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col">
+                                                        <div class="md-form">
+                                                            <textarea class="md-textarea form-control"
+                                                                id="respostasEndpoint1"
+                                                                name="endPoints[endpoint1][respostasEndpoint]" required
+                                                                rows="3"></textarea>
+                                                            <label for="respostasEndpoint1">Respostas *</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col">
+                                                        <div class="md-form">
+                                                            <textarea class="md-textarea form-control"
+                                                                id="dependenciasEndpoint1"
+                                                                name="endPoints[endpoint1][dependenciasEndpoint]"
+                                                                required rows="3"></textarea>
+                                                            <label for="dependenciasEndpoint1">Dependências *</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    {{/each}}
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <p class="h4 pb-4">Componentes <button type="button" onclick="adicionarComponente()"
+                                class="btn btn btn-link btn-success btn-sm p-2">+
+                                Adicionar</button>
+                        </p>
+
+                        <div class="row pb-4">
+                            <div class="col-12">
+                                <div class="card-deck" id="componentes">
+                                    <div class="card col-md-4 componente" id="componente1">
+                                        <a class="btn-floating btn-action mdb-color btn-danger"><i
+                                                class="fas fa-times"></i></a>
+                                        <div class="card-body">
+                                            <h4 class="card-title py-2" id="componente1Title"><a></a></h4>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <div class="md-form">
+                                                        <label for="nomeComponente1">Nome</label>
+                                                        <input class="form-control" id="nomeComponente1"
+                                                            name="componentes[componente1][nomeComponente]" type="text">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <div class="md-form">
+                                                        <textarea class="md-textarea form-control"
+                                                            id="atributosComponente1"
+                                                            name="componentes[componente1][atributosComponente]"
+                                                            rows="3"></textarea>
+                                                        <label for="atributosComponente1">Atributos</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <div class="md-form">
+                                                        <textarea class="md-textarea form-control"
+                                                            id="requeridosComponente1"
+                                                            name="componentes[componente1][requeridosComponente]"
+                                                            rows="3"></textarea>
+                                                        <label for="requeridosComponente1">Requeridos</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="h4 pb-4">Segurança dos Dados</p>
+
+                        <div class="form-row">
+                            <div class="col-md-2">
+                                <div class="md-form">
+                                    <label for="tipoSeguranca">Tipo</label>
+                                    <input class="form-control" id="tipoSeguranca" name="tipoSeguranca" type="text"
+                                        value="{{documentacao.tipoSeguranca}}">
+                                </div>
+                            </div>
+
+                            <div class="col-2">
+                                <div class="md-form">
+                                    <label for="senhaSeguranca">Senha</label>
+                                    <input class="form-control" id="senhaSeguranca" name="senhaSeguranca" type="text"
+                                        value="{{documentacao.senhaSeguranca}}">
+                                </div>
+                            </div>
+
+                            <div class="col-4">
+                                <div class="md-form">
+                                    <label for="linkSeguranca">Link</label>
+                                    <input class="form-control" id="linkSeguranca" name="linkSeguranca" type="text"
+                                        value="{{documentacao.linkSeguranca}}">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="col-2">
+                                <div class="md-form">
+                                    <label for="permissaoSeguranca">Permissão</label>
+                                    <input class="form-control" id="permissaoSeguranca" name="permissaoSeguranca"
+                                        type="text" value="{{documentacao.permissaoSeguranca}}">
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="h4 pb-4">Informações de Contato e Plantão <button type="button"
+                                onclick="adicionarContato()" class="btn btn btn-link btn-success btn-sm p-2">+
+                                Adicionar</button>
+
+                            <div class="row pb-4">
+                                <div class="col-12">
+                                    <div class="card-deck" id="contatos">
+                                        <div class="card col-md-4 componente" id="contato1">
+                                            <a class="btn-floating btn-action mdb-color btn-danger"><i
+                                                    class="fas fa-times"></i></a>
+                                            <div class="card-body">
+                                                <h4 class="card-title py-2" id="contato1Title"><a></a></h4>
+                                                <div class="form-row">
+                                                    <div class="col">
+                                                        <div class="md-form">
+                                                            <label for="nomeContato1">Nome *</label>
+                                                            <input class="form-control" id="nomeContato1" required
+                                                                name="contatos[contato1][nomeContato]" type="text">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col">
+                                                        <div class="md-form">
+                                                            <label for="cargoContato1">Cargo *</label>
+                                                            <input class="form-control" id="cargoContato1" required
+                                                                name="contatos[contato1][cargoContato]" type="text">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col">
+                                                        <div class="md-form">
+                                                            <label for="telefoneContato1">Telefone *</label>
+                                                            <input class="form-control" id="telefoneContato1" required
+                                                                name="contatos[contato1][telefoneContato]" type="text">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col">
+                                                        <div class="md-form">
+                                                            <label for="turnoContato1">Turno *</label>
+                                                            <input class="form-control" id="turnoContato1" required
+                                                                name="contatos[contato1][turnoContato]" type="text">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="col">
+                                                        <div class="md-form">
+                                                            <textarea class="md-textarea form-control"
+                                                                id="horarioContato1"
+                                                                name="contatos[contato1][horarioContato]" required
+                                                                rows="3"></textarea>
+                                                            <label for="horarioContato1">Horário *</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p class="h4 pb-4">Guia de bordo e Desenvolvimento</p>
+
+
+                            <div class="form-row">
+                                <div class="col-12 col-md-4">
+                                    <div class="md-form">
+                                        <textarea class="md-textarea form-control" id="configuracaoDesenvolvimento"
+                                            name="configuracaoDesenvolvimento"
+                                            rows="4">{{documentacao.configuracaoDesenvolvimento}}</textarea>
+                                        <label for="configuracaoDesenvolvimento">Configuração do serviço e
+                                            ambiente</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <div class="md-form">
+                                        <textarea class="md-textarea form-control" id="inicializacaoDesenvolvimento"
+                                            name="inicializacaoDesenvolvimento"
+                                            rows="4">{{documentacao.inicializacaoDesenvolvimento}}</textarea>
+                                        <label for="inicializacaoDesenvolvimento">Inicialização e Funcionamento</label>
+                                    </div>
+                                </div>
+                                <div class="col-12 col-md-4">
+                                    <div class="md-form">
+                                        <textarea class="md-textarea form-control" id="cicloDesenvolvimento"
+                                            name="cicloDesenvolvimento"
+                                            rows="4">{{documentacao.permissaoSeguranca}}</textarea>
+                                        <label for="cicloDesenvolvimento">Ciclo de Desenvolvimento</label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <p class="h4 pb-4">Roteiro de Plantão <button type="button" onclick="adicionarRoteiro()"
+                                    class="btn btn btn-link btn-success btn-sm p-2">+
+                                    Adicionar</button>
+
+                                <div class="row pb-4">
+                                    <div class="col-12">
+                                        <div class="card-deck" id="roteiros">
+                                            <div class="card col-md-4 componente" id="roteiro1">
+                                                <a class="btn-floating btn-action mdb-color btn-danger"><i
+                                                        class="fas fa-times"></i></a>
+                                                <div class="card-body">
+                                                    <h4 class="card-title py-2" id="roteiro1Title"><a></a></h4>
+                                                    <div class="form-row">
+                                                        <div class="col">
+                                                            <div class="md-form">
+                                                                <label for="nomeRoteiro1">Nome</label>
+                                                                <input class="form-control" id="nomeRoteiro1"
+                                                                    name="roteiros[roteiro1][nomeRoteiro]" type="text">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <div class="col">
+                                                            <div class="md-form">
+                                                                <textarea class="md-textarea form-control"
+                                                                    id="descricaoRoteiro1"
+                                                                    name="roteiros[roteiro1][descricaoRoteiro]"
+                                                                    rows="3"></textarea>
+                                                                <label for="descricaoRoteiro1">Descrição</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <div class="col">
+                                                            <div class="md-form">
+                                                                <textarea class="md-textarea form-control"
+                                                                    id="problemaRoteiro1"
+                                                                    name="roteiros[roteiro1][problemaRoteiro]"
+                                                                    rows="3"></textarea>
+                                                                <label for="problemaRoteiro1">Problema</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <div class="col">
+                                                            <div class="md-form">
+                                                                <textarea class="md-textarea form-control"
+                                                                    id="solucaoRoteiro1"
+                                                                    name="roteiros[roteiro1][solucaoRoteiro]"
+                                                                    rows="3"></textarea>
+                                                                <label for="solucaoRoteiro1">Solução</label>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <div class="col">
+                                                            <div class="md-form">
+                                                                <label for="gravidadeRoteiro1">Gravidade</label>
+                                                                <input class="form-control" id="gravidadeRoteiro1"
+                                                                    name="roteiros[roteiro1][gravidadeRoteiro]"
+                                                                    type="text">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-row">
+                                                        <div class="col">
+                                                            <div class="md-form">
+                                                                <label for="responsavelRoteiro1">Responsável</label>
+                                                                <input class="form-control" id="responsavelRoteiro1"
+                                                                    name="roteiros[roteiro1][responsavelRoteiro]"
+                                                                    type="text">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <p class="h4 pb-4">FAQ <button type="button" onclick="adicionarFAQ()"
+                                        class="btn btn btn-link btn-success btn-sm p-2">+
+                                        Adicionar</button>
+
+                                    <div class="row pb-4">
+                                        <div class="col-12">
+                                            <div class="card-deck" id="faqs">
+                                                <div class="card col-md-4 componente" id="faq1">
+                                                    <a class="btn-floating btn-action mdb-color btn-danger"><i
+                                                            class="fas fa-times"></i></a>
+                                                    <div class="card-body">
+                                                        <h4 class="card-title py-2" id="faq1Title"><a></a></h4>
+                                                        <div class="form-row">
+                                                            <div class="col">
+                                                                <div class="md-form">
+                                                                    <textarea class="md-textarea form-control"
+                                                                        id="perguntaFAQ1" name="faqs[faq1][perguntaFAQ]"
+                                                                        rows="3"></textarea>
+                                                                    <label for="perguntaFAQ1">Pergunta</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-row">
+                                                            <div class="col">
+                                                                <div class="md-form">
+                                                                    <textarea class="md-textarea form-control"
+                                                                        id="respostaFAQ1" name="faqs[faq1][respostaFAQ]"
+                                                                        rows="3"></textarea>
+                                                                    <label for="respostaFAQ1">Resposta</label>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-row">
+                                                            <div class="col">
+                                                                <div class="md-form">
+                                                                    <label for="nomeFAQ1">Autor</label>
+                                                                    <input class="form-control" id="nomeFAQ1"
+                                                                        name="faqs[faq1][nomeFAQ]" type="text">
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="form-row float-right">
+                                        <div class="md-form">
+                                            <button type="submit" class="btn btn-success">Salvar</button>
+                                        </div>
+                                    </div>
+
+                    </form>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+{{> footer }}
