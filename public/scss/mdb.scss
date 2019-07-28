@@ -1,9 +1,9 @@
 /*!
  * Material Design for Bootstrap 4
- * Version: MDB PRO 4.7.5
+ * Version: MDB Admin Dashboard Pack 4.7.5
  *
  *
- * Copyright: Material Design for BootstrapS
+ * Copyright: Material Design for Bootstrap
  * https://mdbootstrap.com/
  *
  * Read the license: https://mdbootstrap.com/general/license/
@@ -30,7 +30,6 @@
 // Bootstrap
 @import "core/bootstrap/functions";
 @import "core/bootstrap/variables";
-@import "core/bootstrap/rfs";
 
 // CORE
 @import "core/mixins";
@@ -46,7 +45,7 @@
 
 // FREE
 @import "free/animations-basic";
-@import "free/modules/animations-extended/module";
+@import "free/modules/animations-extended/animations-extended";
 @import "free/buttons";
 @import "free/cards";
 @import "free/dropdowns";
@@ -64,10 +63,9 @@
 @import "free/depreciated";
 @import "free/steppers";
 @import "free/loader";
+
 // Free addons
 // @import "addons/datatables";
-// @import "addons/datatables-select";
-// @import "addons/directives";
 
 // PRO
 @import "pro/variables";
@@ -76,9 +74,10 @@
 @import "pro/tabs";
 @import "pro/cards-basic";
 @import "pro/dropdowns";
+@import "pro/depreciated";
 @import "pro/navbars";
 @import "pro/scrollspy";
-@import "pro/modules/lightbox/module";
+@import "pro/lightbox";
 @import "pro/chips";
 @import "pro/msc";
 @import "pro/forms";
@@ -91,23 +90,18 @@
 @import "pro/input-group";
 @import "pro/autocomplete";
 @import "pro/accordion-basic";
-@import "pro/modules/accordion-extended/module";
-@import "pro/modules/parallax/module";
+@import "pro/parallax";
 @import "pro/sidenav";
 @import "pro/ecommerce";
-@import "pro/carousels";
 @import "pro/blog";
 @import "pro/toasts";
 @import "pro/animations";
-@import "pro/modules/charts/module";
+@import "pro/charts";
 @import "pro/progress";
 @import "pro/scrollbar";
-@import "pro/modules/megamenu/module";
-@import "pro/tooltips";
 // Your custom skin
 @import "custom-skin";
 @import "pro/skins";
-@import "pro/depreciated";
 
 // Picker
 @import "pro/picker/default";
@@ -116,18 +110,13 @@
 
 // Sections
 @import "pro/sections/templates";
-@import "pro/sections/social";
 @import "pro/sections/team";
 @import "pro/sections/testimonials";
-@import "pro/sections/magazine";
 @import "pro/sections/pricing";
 @import "pro/sections/contacts";
 
-// Pro addons
-// @import "addons-pro/steppers";
-// @import "addons-pro/timeline";
-// @import "addons-pro/cards-extended";
-// @import "addons-pro/chat";
+// Admin styles
+@import "admin/style";
 
 // Your custom styles
 @import "custom-styles";

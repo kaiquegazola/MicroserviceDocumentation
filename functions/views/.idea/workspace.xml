@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="8494598b-788b-471f-8424-dc4fac5412d4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/../api/v1/documentacao.js" beforeDir="false" afterPath="$PROJECT_DIR$/../api/v1/documentacao.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../firebase/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../firebase/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../package.json" beforeDir="false" afterPath="$PROJECT_DIR$/../package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../routes/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentacao.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/documentacao.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/documentacoes.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/documentacoes.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fragments/footer.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/fragments/footer.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fragments/header.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/fragments/header.hbs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../../public/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/404.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/css/addons-pro/cards-extended.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/css/addons-pro/cards-extended.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/css/addons-pro/chat.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/css/addons-pro/chat.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/css/addons-pro/stepper.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/css/addons-pro/stepper.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/css/addons-pro/steppers.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/css/addons-pro/steppers.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/css/addons-pro/timeline.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/css/addons-pro/timeline.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/css/mdb.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../public/css/mdb.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/css/mdb.lite.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/css/mdb.lite.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/css/mdb.min.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../public/css/mdb.min.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/css/modules/accordion-extended.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/css/modules/accordion-extended.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/css/modules/charts.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/css/modules/charts.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/css/modules/lightbox.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/css/modules/lightbox.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/css/modules/megamenu.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/css/modules/megamenu.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/css/modules/parallax.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/css/modules/parallax.min.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/css/style.css" beforeDir="false" afterPath="$PROJECT_DIR$/../../public/css/style.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/js/addons-pro/stepper.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/js/addons-pro/stepper.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/js/addons-pro/steppers.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/js/addons-pro/steppers.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/js/addons-pro/timeline.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/js/addons/datatables.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../public/js/addons/datatables.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/js/mdb.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../public/js/mdb.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/js/mdb.lite.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/js/mdb.lite.min.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/js/mdb.min.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../public/js/mdb.min.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/js/modules/character-counter.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../public/js/modules/character-counter.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/js/modules/file-input.js" beforeDir="false" afterPath="$PROJECT_DIR$/../../public/js/modules/file-input.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/js/modules/preloading.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/js/modules/range-input.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/js/modules/sticky.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/mdb-addons/mdb-lightbox-ui.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../public/mdb-addons/mdb-lightbox-ui.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/mdb-addons/preloader.html" beforeDir="false" afterPath="$PROJECT_DIR$/../../public/mdb-addons/preloader.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/scss/addons-pro/_cards-extended.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/scss/addons-pro/_chat.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/scss/addons-pro/_steppers.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/scss/addons-pro/_timeline.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/scss/free/_switch.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/scss/mdb.lite.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/scss/mdb.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../public/scss/mdb.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/scss/pro/_cards-basic.scss" beforeDir="false" afterPath="$PROJECT_DIR$/../../public/scss/pro/_cards-basic.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/scss/pro/_carousels.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/scss/pro/_steppers.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/scss/pro/_timelines.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/scss/pro/_tooltips.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/scss/pro/modules/accordion-extended/_module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/scss/pro/modules/accordion-extended/accordion-extended.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/scss/pro/modules/cards-extended/_module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/scss/pro/modules/cards-extended/cards-extended.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/scss/pro/modules/charts/_module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/scss/pro/modules/charts/charts.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/scss/pro/modules/lightbox/_module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/scss/pro/modules/lightbox/lightbox.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/scss/pro/modules/megamenu/_module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/scss/pro/modules/megamenu/megamenu.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/scss/pro/modules/parallax/_module.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/scss/pro/modules/parallax/parallax.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/scss/pro/sections/_magazine.scss" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../public/scss/pro/sections/_social.scss" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution>
+      <executable />
+    </execution>
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/documentacao.hbs">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="85">
+              <caret line="5" selection-start-line="5" selection-end-line="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>&lt;form</find>
+    </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/documentacao.hbs" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="515" />
+    <option name="y" value="6" />
+    <option name="width" value="1400" />
+    <option name="height" value="830" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="8494598b-788b-471f-8424-dc4fac5412d4" name="Default Changelist" comment="" />
+      <created>1564356771327</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1564356771327</updated>
+      <workItem from="1564356772573" duration="12000" />
+      <workItem from="1564356797376" duration="390000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="402000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Database Changes" order="8" />
+      <window_info anchor="bottom" id="Version Control" order="9" />
+      <window_info anchor="bottom" id="Terminal" order="10" />
+      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Database" order="3" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/documentacao.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

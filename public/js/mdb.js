@@ -1,6 +1,6 @@
 /*!
  * Material Design for Bootstrap 4
- * Version: MDB Pro 4.7.4
+ * Version: MDB Admin Dashboard 4.7.5
  *
  *
  * Copyright: Material Design for Bootstrap
@@ -21,45 +21,41 @@
  *
  * Contact: office@mdbootstrap.com
  *
- * Attribution: Animate CSS, Twitter Bootstrap, Materialize CSS, Normalize CSS, Waves JS, WOW JS, Toastr, Chart.js ,
+ * Attribution: Animate CSS, Twitter Bootstrap, Materialize CSS, Normalize CSS, Waves JS, WOW JS, Toastr, Chart.js
  *
  */
 
 
 /*
 
-  jquery.easing.js
-  velocity.js
-  chart.js
-  wow.js
-  scrolling-navbar.js
-  waves.js
-  forms-free.js
-  preloading.js
-  cards.js
-  character-counter.js
-  toastr.js
-  smooth-scroll.js
-  dropdown.js
-  buttons.js
-  sidenav.js
-  collapsible.js
-  jquery.easypiechart.js
-  range-input.js
-  file-input.js
-  material-select.js
-  picker.js
-  picker-date.js
-  picker-time.js
-  lightbox.js
-  jquery.sticky.js
-  scrollbar.js
-  chips.js
-  ofi.js
-  jarallax.js
-  jarallax-video.js
-  mdb-autocomplete.js
-  enhanced-modals.js
+jquery.easing.js
+velocity.min.js
+chart.js
+wow.js
+scrolling-navbar.js
+waves.js
+forms-free.js
+cards.js
+smooth-scroll.js
+toastr.js
+dropdown.js
+buttons.js
+sidenav.js
+collapsible.js
+jquery.easypiechart.js
+file-input.js
+material-select.js
+picker.js
+picker-date.js
+picker-time.js
+lightbox.js
+jquery.sticky.js
+scrollbar.js
+chips.js
+jarallax.js
+jarallax-video.js
+mdb-autocomplete.js
+
 
 */
 
@@ -14956,6 +14952,55 @@ var WOW;
     }
   });
 })(jQuery);
+"use strict";
+
+(function ($) {
+  $.fn.characterCounter = function () {
+    return this.each(function () {
+      var itHasLengthAttribute = $(this).attr('length') !== undefined;
+
+      if (itHasLengthAttribute) {
+        $(this).on('input', updateCounter);
+        $(this).on('focus', updateCounter);
+        $(this).on('blur', removeCounterElement);
+        addCounterElement($(this));
+      }
+    });
+  };
+
+  function updateCounter() {
+    var maxLength = Number($(this).attr('length'));
+    var actualLength = Number($(this).val().length);
+    var isValidLength = actualLength <= maxLength;
+    $(this).parent().find('span[class="character-counter"]').html("".concat(actualLength, "/").concat(maxLength));
+    addInputStyle(isValidLength, $(this));
+  }
+
+  function addCounterElement($input) {
+    var $counterElement = $('<span/>').addClass('character-counter').css('float', 'right').css('font-size', '12px').css('height', 1);
+    $input.parent().append($counterElement);
+  }
+
+  function removeCounterElement() {
+    $(this).parent().find('span[class="character-counter"]').html('');
+  }
+
+  function addInputStyle(isValidLength, $input) {
+    var inputHasInvalidClass = $input.hasClass('invalid');
+
+    if (isValidLength && inputHasInvalidClass) {
+      $input.removeClass('invalid');
+    } else if (!isValidLength && !inputHasInvalidClass) {
+      $input.removeClass('valid');
+      $input.addClass('invalid');
+    }
+  }
+
+  $(document).ready(function () {
+    $('input, textarea').characterCounter();
+  });
+})(jQuery);
+
 /*!
  * Waves v0.7.6
  * http://fian.my.id/Waves
@@ -15734,17 +15779,6 @@ var _this = void 0;
 })(jQuery);
 "use strict";
 
-$(document).ready(function () {
-  $('body').attr('aria-busy', true);
-  $('#preloader-markup').load('mdb-addons/preloader.html', function () {
-    $(window).on('load', function () {
-      $('#mdb-preloader').fadeOut('slow');
-      $('body').removeAttr('aria-busy');
-    });
-  });
-});
-"use strict";
-
 (function ($) {
   $(document).on('click.card', '.card', function (e) {
     var $reveal = $(this).find('.card-reveal');
@@ -15809,54 +15843,6 @@ $(document).ready(function () {
 $('.map-card').click(function () {
   $('.card-body').toggleClass('closed');
 });
-"use strict";
-
-(function ($) {
-  $.fn.characterCounter = function () {
-    return this.each(function () {
-      var itHasLengthAttribute = $(this).attr('length') !== undefined;
-
-      if (itHasLengthAttribute) {
-        $(this).on('input', updateCounter);
-        $(this).on('focus', updateCounter);
-        $(this).on('blur', removeCounterElement);
-        addCounterElement($(this));
-      }
-    });
-  };
-
-  function updateCounter() {
-    var maxLength = Number($(this).attr('length'));
-    var actualLength = Number($(this).val().length);
-    var isValidLength = actualLength <= maxLength;
-    $(this).parent().find('span[class="character-counter"]').html("".concat(actualLength, "/").concat(maxLength));
-    addInputStyle(isValidLength, $(this));
-  }
-
-  function addCounterElement($input) {
-    var $counterElement = $('<span/>').addClass('character-counter').css('float', 'right').css('font-size', '12px').css('height', 1);
-    $input.parent().append($counterElement);
-  }
-
-  function removeCounterElement() {
-    $(this).parent().find('span[class="character-counter"]').html('');
-  }
-
-  function addInputStyle(isValidLength, $input) {
-    var inputHasInvalidClass = $input.hasClass('invalid');
-
-    if (isValidLength && inputHasInvalidClass) {
-      $input.removeClass('invalid');
-    } else if (!isValidLength && !inputHasInvalidClass) {
-      $input.removeClass('valid');
-      $input.addClass('invalid');
-    }
-  }
-
-  $(document).ready(function () {
-    $('input, textarea').characterCounter();
-  });
-})(jQuery);
 /*
  * Toastr
  * Copyright 2012-2015
@@ -17780,152 +17766,20 @@ $.fn.easyPieChart = function(options) {
 
 }));
 
-"use strict";
+'use strict';
 
 (function ($) {
-  var rangeWrapper = '.range-field';
-  var rangeType = 'input[type=range]:not(.custom-range):not(.multi-range)';
-  var thumbHtml = '<span class="thumb"><span class="value"></span></span>';
-  var rangeMousedown = false;
-  var left;
 
-  var addThumb = function addThumb() {
-    var $thumb = $(thumbHtml);
-    $(rangeType).after($thumb);
-  };
-
-  $(document).on('change', rangeType, function () {
-    var $thumb = $(this);
-    var $thumbValue = $thumb.siblings('.thumb').find('.value');
-    $thumbValue.html($thumb.val());
-  });
-  $(document).on('input mousedown touchstart', rangeType, function (e) {
-    var $this = $(this);
-    var $thumb = $this.siblings('.thumb');
-    var width = $this.outerWidth();
-    var noThumb = !$thumb.length;
-
-    if (noThumb) {
-      addThumb();
-    } // Set indicator value
-
-
-    $thumb.find('.value').html($this.val());
-    rangeMousedown = true;
-    $this.addClass('active');
-
-    if (!$thumb.hasClass('active')) {
-      $thumb.velocity({
-        height: '30px',
-        width: '30px',
-        top: '-20px',
-        marginLeft: '-15px'
-      }, {
-        duration: 300,
-        easing: 'easeOutExpo'
-      });
-    }
-
-    if (e.type !== 'input') {
-      var isMobile = e.pageX === undefined || e.pageX === null;
-
-      if (isMobile) {
-        left = e.originalEvent.touches[0].pageX - $(this).offset().left;
-      } else {
-        left = e.pageX - $(this).offset().left;
-      }
-
-      if (left < 0) {
-        left = 0;
-      } else if (left > width) {
-        left = width;
-      }
-
-      $thumb.addClass('active').css('left', left);
-    }
-
-    $thumb.find('.value').html($this.val());
-  });
-  $(document).on('mouseup touchend', rangeWrapper, function () {
-    rangeMousedown = false;
-    $(this).removeClass('active');
-  });
-  $(document).on('mousemove touchmove', rangeWrapper, function (e) {
-    var $thumb = $(this).children('.thumb');
-    var left;
-
-    if (rangeMousedown) {
-      if (!$thumb.hasClass('active')) {
-        $thumb.velocity({
-          height: '30px',
-          width: '30px',
-          top: '-20px',
-          marginLeft: '-15px'
-        }, {
-          duration: 300,
-          easing: 'easeOutExpo'
-        });
-      }
-
-      var isMobile = e.pageX === undefined || e.pageX === null;
-
-      if (isMobile) {
-        left = e.originalEvent.touches[0].pageX - $(this).offset().left;
-      } else {
-        left = e.pageX - $(this).offset().left;
-      }
-
-      var width = $(this).outerWidth();
-
-      if (left < 0) {
-        left = 0;
-      } else if (left > width) {
-        left = width;
-      }
-
-      $thumb.addClass('active').css('left', left);
-      $thumb.find('.value').html($thumb.siblings(rangeType).val());
-    }
-  });
-  $(document).on('mouseout touchleave', rangeWrapper, function () {
-    if (!rangeMousedown) {
-      var $thumb = $(this).children('.thumb');
-
-      if ($thumb.hasClass('active')) {
-        $thumb.velocity({
-          height: '0',
-          width: '0',
-          top: '10px',
-          marginLeft: '-6px'
-        }, {
-          duration: 100
-        });
-      }
-
-      $thumb.removeClass('active');
-    }
-  });
-})(jQuery);
-"use strict";
-
-(function ($) {
   $(document).on('change', '.file-field input[type="file"]', function (e) {
+
     var $this = $(e.target);
     var $fileField = $this.closest('.file-field');
     var $pathInput = $fileField.find('input.file-path');
     var files = $this[0].files;
-    var fileNames = []; // files.forEach((file) => fileNames.push(file.name));
-
-    if (Array.isArray(files)) {
-      files.forEach(function (file) {
-        return fileNames.push(file.name);
-      });
-    } else {
-      Object.keys(files).forEach(function (key) {
-        fileNames.push(files[key].name);
-      });
-    }
-
+    var fileNames = [];
+    files.forEach(function (file) {
+      return fileNames.push(file.name);
+    });
     $pathInput.val(fileNames.join(', '));
     $pathInput.trigger('change');
   });
@@ -23612,202 +23466,120 @@ var initPhotoSwipeFromDOM = function (gallerySelector) {
 
 // execute above function
 initPhotoSwipeFromDOM('.mdb-lightbox');
-"use strict";
+/* jSticky Plugin
+ * =============
+ * Author: Andrew Henderson (@AndrewHenderson)
+ * Contributor: Mike Street (@mikestreety)
+ * Date: 9/7/2012
+ * Update: 09/20/2016
+ * Website: http://github.com/andrewhenderson/jsticky/
+ * Description: A jQuery plugin that keeps select DOM
+ * element(s) in view while scrolling the page.
+ */
 
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+;(function($) {
 
-function _defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } }
+  $.fn.sticky = function(options) {
+    var defaults = {
+      topSpacing: 0, // No spacing by default
+      zIndex: '', // No default z-index
+      stopper: '.sticky-stopper', // Default stopper class, also accepts number value
+      stickyClass: false // Class applied to element when it's stuck
+    };
+    var settings = $.extend({}, defaults, options); // Accepts custom stopper id or class
 
-function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
-
-(function ($) {
-  var DEFAULT_TOP_SPACING = 0;
-
-  var Sticky =
-  /*#__PURE__*/
-  function () {
-    function Sticky(element, options) {
-      _classCallCheck(this, Sticky);
-
-      this.defaults = {
-        topSpacing: DEFAULT_TOP_SPACING,
-        zIndex: false,
-        stopper: '#footer',
-        stickyClass: false,
-        startScrolling: 'top',
-        minWidth: false
-      };
-      this.$element = element;
-      this.options = this.assignOptions(options);
-      this.$window = $(window);
-      this.stopper = this.options.stopper;
-      this.elementWidth = this.$element.outerWidth();
-      this.elementHeight = this.$element.outerHeight(true);
-      this.$placeholder = $('<div class="sticky-placeholder"></div>');
-      this.scrollTop = 0;
-      this.setPushPoint();
-      this.setStopperPosition();
-      this.bindEvents();
+    // Checks if custom z-index was defined
+    function checkIndex() {
+      if (typeof settings.zIndex == 'number') {
+        return true;
+      } else {
+        return false;
+      }
     }
 
-    _createClass(Sticky, [{
-      key: "assignOptions",
-      value: function assignOptions(options) {
-        return $.extend({}, this.defaults, options);
+    var hasIndex = checkIndex(); // True or false
+
+    // Checks if a stopper exists in the DOM or number defined
+    function checkStopper() {
+      if (0 < $(settings.stopper).length || typeof settings.stopper === 'number') {
+        return true;
+      } else {
+        return false;
       }
-    }, {
-      key: "bindEvents",
-      value: function bindEvents() {
-        this.$window.on('resize', this.handleResize.bind(this));
-        this.$window.on('scroll', this.init.bind(this));
-      }
-    }, {
-      key: "hasZIndex",
-      value: function hasZIndex() {
-        return typeof this.options.zIndex === 'number';
-      }
-    }, {
-      key: "hasStopper",
-      value: function hasStopper() {
-        return $(this.options.stopper).length || typeof this.options.stopper === 'number';
-      }
-    }, {
-      key: "isScreenHeightEnough",
-      value: function isScreenHeightEnough() {
-        return this.$element.outerHeight() + this.options.topSpacing < this.$window.height();
-      }
-    }, {
-      key: "setStopperPosition",
-      value: function setStopperPosition() {
-        if (typeof this.options.stopper === 'string') {
-          this.stopPoint = $(this.stopper).offset().top - this.options.topSpacing;
-        } else if (typeof this.options.stopper === 'number') {
-          this.stopPoint = this.options.stopper;
-        }
-      }
-    }, {
-      key: "setPushPoint",
-      value: function setPushPoint() {
-        if (this.options.startScrolling === 'bottom' && !this.isScreenHeightEnough()) {
-          this.$pushPoint = this.$element.offset().top + this.$element.outerHeight(true) - this.$window.height();
-        } else {
-          this.$pushPoint = this.$element.offset().top - this.options.topSpacing;
-        }
-      }
-    }, {
-      key: "handleResize",
-      value: function handleResize() {
-        this.elementWidth = this.$element.outerWidth();
-        this.elementHeight = this.$element.outerHeight(true);
-        this.setPushPoint();
-        this.setStopperPosition();
-        this.init();
-      }
-    }, {
-      key: "init",
-      value: function init() {
-        if (this.options.minWidth && this.options.minWidth > this.$window.innerWidth()) {
-          return false;
+    }
+    var hasStopper = checkStopper(); // True or false
+
+    return this.each(function() {
+
+      var $this = $(this);
+      var thisHeight = $this.outerHeight();
+      var thisWidth = $this.outerWidth();
+      var topSpacing = settings.topSpacing;
+      var zIndex = settings.zIndex;
+      var pushPoint = $this.offset().top - topSpacing; // Point at which the sticky element starts pushing
+      var placeholder = $('<div></div>').width(thisWidth).height(thisHeight).addClass('sticky-placeholder'); // Cache a clone sticky element
+      var stopper = settings.stopper;
+      var $window = $(window);
+
+      function stickyScroll() {
+
+        var windowTop  = $window.scrollTop(); // Check window's scroll position
+        var stopPoint = stopper;
+        var parentWidth = $this.parent().width();
+
+        placeholder.width(parentWidth)
+
+        if ( hasStopper && typeof stopper === 'string' ) {
+          var stopperTop = $(stopper).offset().top;
+          stopPoint  = (stopperTop - thisHeight) - topSpacing;
         }
 
-        if (this.options.startScrolling === 'bottom' && !this.isScreenHeightEnough()) {
-          this.scrollTop = this.$window.scrollTop() + this.$window.height();
-        } else {
-          this.scrollTop = this.$window.scrollTop();
-        }
+        if (pushPoint < windowTop) {
+          // Create a placeholder for sticky element to occupy vertical real estate
+          if(settings.stickyClass)
+            $this.addClass(settings.stickyClass);
 
-        if (this.$pushPoint < this.scrollTop) {
-          this.appendPlaceholder();
-          this.stickyStart();
-        } else {
-          this.stickyEnd();
-        }
-
-        if (this.$window.scrollTop() > this.$pushPoint) {
-          this.stop();
-        } else {
-          this.stickyEnd();
-        }
-      }
-    }, {
-      key: "appendPlaceholder",
-      value: function appendPlaceholder() {
-        this.$element.after(this.$placeholder);
-        this.$placeholder.css({
-          width: this.elementWidth,
-          height: this.elementHeight
-        });
-      }
-    }, {
-      key: "stickyStart",
-      value: function stickyStart() {
-        if (this.options.stickyClass) {
-          this.$element.addClass(this.options.stickyClass);
-        } // @see: https://stackoverflow.com/a/4370047
-
-
-        this.$element.get(0).style.overflow = 'scroll';
-        var scrollHeight = this.$element.get(0).scrollHeight;
-        this.$element.get(0).style.overflow = '';
-        this.$element.css({
-          'position': 'fixed',
-          'width': this.elementWidth,
-          'height': scrollHeight
-        });
-
-        if (this.options.startScrolling === 'bottom' && !this.isScreenHeightEnough()) {
-          this.$element.css({
-            bottom: 0,
-            top: ''
+          $this.after(placeholder).css({
+            position: 'fixed',
+            top: topSpacing,
+            width: parentWidth
           });
+
+          if (hasIndex) {
+            $this.css({
+              zIndex: zIndex
+            });
+          }
+
+          if (hasStopper) {
+            if (stopPoint < windowTop) {
+              var diff = (stopPoint - windowTop) + topSpacing;
+              $this.css({
+                top: diff
+              });
+            }
+          }
         } else {
-          this.$element.css({
-            top: this.options.topSpacing
-          });
-        }
+          if(settings.stickyClass)
+            $this.removeClass(settings.stickyClass);
 
-        if (this.hasZIndex()) {
-          this.$element.css({
-            zIndex: this.options.zIndex
+          $this.css({
+            position: 'static',
+            top: null,
+            left: null,
+            width: 'auto'
           });
+
+          placeholder.remove();
         }
       }
-    }, {
-      key: "stickyEnd",
-      value: function stickyEnd() {
-        if (this.options.stickyClass) {
-          this.$element.removeClass(this.options.stickyClass);
-        }
 
-        this.$placeholder.remove();
-        this.$element.css({
-          position: 'static',
-          top: DEFAULT_TOP_SPACING
-        });
+      if($window.innerHeight() > thisHeight) {
+
+        $window.bind('scroll', stickyScroll);
+        $window.bind('load', stickyScroll);
+        $window.bind('resize', stickyScroll);
       }
-    }, {
-      key: "stop",
-      value: function stop() {
-        if (this.stopPoint < $(this.$element).offset().top + this.$element.outerHeight(true)) {
-          this.$element.css({
-            position: 'absolute',
-            bottom: 0,
-            top: ''
-          });
-        }
-      }
-    }]);
-
-    return Sticky;
-  }();
-
-  $.fn.sticky = function (options) {
-    return this.each(function () {
-      var $self = $(this);
-      $(window).on('load', function () {
-        var sticky = new Sticky($self, options);
-        sticky.init();
-      });
     });
   };
 })(jQuery);
@@ -24124,241 +23896,6 @@ function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _d
 
   $.fn.material_chip = $.fn.materialChip;
 })(jQuery);
-/*! npm.im/object-fit-images 3.2.4 */
-var objectFitImages = (function () {
-'use strict';
-
-var OFI = 'bfred-it:object-fit-images';
-var propRegex = /(object-fit|object-position)\s*:\s*([-.\w\s%]+)/g;
-var testImg = typeof Image === 'undefined' ? {style: {'object-position': 1}} : new Image();
-var supportsObjectFit = 'object-fit' in testImg.style;
-var supportsObjectPosition = 'object-position' in testImg.style;
-var supportsOFI = 'background-size' in testImg.style;
-var supportsCurrentSrc = typeof testImg.currentSrc === 'string';
-var nativeGetAttribute = testImg.getAttribute;
-var nativeSetAttribute = testImg.setAttribute;
-var autoModeEnabled = false;
-
-function createPlaceholder(w, h) {
-	return ("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='" + w + "' height='" + h + "'%3E%3C/svg%3E");
-}
-
-function polyfillCurrentSrc(el) {
-	if (el.srcset && !supportsCurrentSrc && window.picturefill) {
-		var pf = window.picturefill._;
-		// parse srcset with picturefill where currentSrc isn't available
-		if (!el[pf.ns] || !el[pf.ns].evaled) {
-			// force synchronous srcset parsing
-			pf.fillImg(el, {reselect: true});
-		}
-
-		if (!el[pf.ns].curSrc) {
-			// force picturefill to parse srcset
-			el[pf.ns].supported = false;
-			pf.fillImg(el, {reselect: true});
-		}
-
-		// retrieve parsed currentSrc, if any
-		el.currentSrc = el[pf.ns].curSrc || el.src;
-	}
-}
-
-function getStyle(el) {
-	var style = getComputedStyle(el).fontFamily;
-	var parsed;
-	var props = {};
-	while ((parsed = propRegex.exec(style)) !== null) {
-		props[parsed[1]] = parsed[2];
-	}
-	return props;
-}
-
-function setPlaceholder(img, width, height) {
-	// Default: fill width, no height
-	var placeholder = createPlaceholder(width || 1, height || 0);
-
-	// Only set placeholder if it's different
-	if (nativeGetAttribute.call(img, 'src') !== placeholder) {
-		nativeSetAttribute.call(img, 'src', placeholder);
-	}
-}
-
-function onImageReady(img, callback) {
-	// naturalWidth is only available when the image headers are loaded,
-	// this loop will poll it every 100ms.
-	if (img.naturalWidth) {
-		callback(img);
-	} else {
-		setTimeout(onImageReady, 100, img, callback);
-	}
-}
-
-function fixOne(el) {
-	var style = getStyle(el);
-	var ofi = el[OFI];
-	style['object-fit'] = style['object-fit'] || 'fill'; // default value
-
-	// Avoid running where unnecessary, unless OFI had already done its deed
-	if (!ofi.img) {
-		// fill is the default behavior so no action is necessary
-		if (style['object-fit'] === 'fill') {
-			return;
-		}
-
-		// Where object-fit is supported and object-position isn't (Safari < 10)
-		if (
-			!ofi.skipTest && // unless user wants to apply regardless of browser support
-			supportsObjectFit && // if browser already supports object-fit
-			!style['object-position'] // unless object-position is used
-		) {
-			return;
-		}
-	}
-
-	// keep a clone in memory while resetting the original to a blank
-	if (!ofi.img) {
-		ofi.img = new Image(el.width, el.height);
-		ofi.img.srcset = nativeGetAttribute.call(el, "data-ofi-srcset") || el.srcset;
-		ofi.img.src = nativeGetAttribute.call(el, "data-ofi-src") || el.src;
-
-		// preserve for any future cloneNode calls
-		// https://github.com/bfred-it/object-fit-images/issues/53
-		nativeSetAttribute.call(el, "data-ofi-src", el.src);
-		if (el.srcset) {
-			nativeSetAttribute.call(el, "data-ofi-srcset", el.srcset);
-		}
-
-		setPlaceholder(el, el.naturalWidth || el.width, el.naturalHeight || el.height);
-
-		// remove srcset because it overrides src
-		if (el.srcset) {
-			el.srcset = '';
-		}
-		try {
-			keepSrcUsable(el);
-		} catch (err) {
-			if (window.console) {
-				console.warn('https://bit.ly/ofi-old-browser');
-			}
-		}
-	}
-
-	polyfillCurrentSrc(ofi.img);
-
-	el.style.backgroundImage = "url(\"" + ((ofi.img.currentSrc || ofi.img.src).replace(/"/g, '\\"')) + "\")";
-	el.style.backgroundPosition = style['object-position'] || 'center';
-	el.style.backgroundRepeat = 'no-repeat';
-	el.style.backgroundOrigin = 'content-box';
-
-	if (/scale-down/.test(style['object-fit'])) {
-		onImageReady(ofi.img, function () {
-			if (ofi.img.naturalWidth > el.width || ofi.img.naturalHeight > el.height) {
-				el.style.backgroundSize = 'contain';
-			} else {
-				el.style.backgroundSize = 'auto';
-			}
-		});
-	} else {
-		el.style.backgroundSize = style['object-fit'].replace('none', 'auto').replace('fill', '100% 100%');
-	}
-
-	onImageReady(ofi.img, function (img) {
-		setPlaceholder(el, img.naturalWidth, img.naturalHeight);
-	});
-}
-
-function keepSrcUsable(el) {
-	var descriptors = {
-		get: function get(prop) {
-			return el[OFI].img[prop ? prop : 'src'];
-		},
-		set: function set(value, prop) {
-			el[OFI].img[prop ? prop : 'src'] = value;
-			nativeSetAttribute.call(el, ("data-ofi-" + prop), value); // preserve for any future cloneNode
-			fixOne(el);
-			return value;
-		}
-	};
-	Object.defineProperty(el, 'src', descriptors);
-	Object.defineProperty(el, 'currentSrc', {
-		get: function () { return descriptors.get('currentSrc'); }
-	});
-	Object.defineProperty(el, 'srcset', {
-		get: function () { return descriptors.get('srcset'); },
-		set: function (ss) { return descriptors.set(ss, 'srcset'); }
-	});
-}
-
-function hijackAttributes() {
-	function getOfiImageMaybe(el, name) {
-		return el[OFI] && el[OFI].img && (name === 'src' || name === 'srcset') ? el[OFI].img : el;
-	}
-	if (!supportsObjectPosition) {
-		HTMLImageElement.prototype.getAttribute = function (name) {
-			return nativeGetAttribute.call(getOfiImageMaybe(this, name), name);
-		};
-
-		HTMLImageElement.prototype.setAttribute = function (name, value) {
-			return nativeSetAttribute.call(getOfiImageMaybe(this, name), name, String(value));
-		};
-	}
-}
-
-function fix(imgs, opts) {
-	var startAutoMode = !autoModeEnabled && !imgs;
-	opts = opts || {};
-	imgs = imgs || 'img';
-
-	if ((supportsObjectPosition && !opts.skipTest) || !supportsOFI) {
-		return false;
-	}
-
-	// use imgs as a selector or just select all images
-	if (imgs === 'img') {
-		imgs = document.getElementsByTagName('img');
-	} else if (typeof imgs === 'string') {
-		imgs = document.querySelectorAll(imgs);
-	} else if (!('length' in imgs)) {
-		imgs = [imgs];
-	}
-
-	// apply fix to all
-	for (var i = 0; i < imgs.length; i++) {
-		imgs[i][OFI] = imgs[i][OFI] || {
-			skipTest: opts.skipTest
-		};
-		fixOne(imgs[i]);
-	}
-
-	if (startAutoMode) {
-		document.body.addEventListener('load', function (e) {
-			if (e.target.tagName === 'IMG') {
-				fix(e.target, {
-					skipTest: opts.skipTest
-				});
-			}
-		}, true);
-		autoModeEnabled = true;
-		imgs = 'img'; // reset to a generic selector for watchMQ
-	}
-
-	// if requested, watch media queries for object-fit change
-	if (opts.watchMQ) {
-		window.addEventListener('resize', fix.bind(null, imgs, {
-			skipTest: opts.skipTest
-		}));
-	}
-}
-
-fix.supportsObjectFit = supportsObjectFit;
-fix.supportsObjectPosition = supportsObjectPosition;
-
-hijackAttributes();
-
-return fix;
-
-}());
-
 /*!
  * Name    : Just Another Parallax [Jarallax]
  * Version : 1.10.4

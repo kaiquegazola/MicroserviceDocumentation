@@ -4,54 +4,6 @@ var path = require('path')
 
 var api = {};
 
-const bucket = fb.firebaseApp.storage().bucket();
-
-
-/**
- * Upload the image file to Google Storage
- * @param {File} file object that will be uploaded to Google Storage
- */
-async function uploadImageToStorage(file) {
-    let prom = new Promise((resolve, reject) => {
-        if (!file) {
-            reject('No image file');
-        }
-        let newFileName = "Empresas/" + file.name + path.extname(file.originalname); //uqiue name
-
-        let fileUpload = bucket.file(newFileName);
-        const blobStream = fileUpload.createWriteStream({
-            metadata: {
-                contentType: file.mimetype
-            }
-        });
-
-        blobStream.on('error', (error) => {
-            reject('Something is wrong! Unable to upload at the moment.');
-        });
-
-        blobStream.on('finish', () => {
-            /*
-            const options = {
-              action: 'read',
-              expires: '03-17-2025'
-            };
-            // Get a signed URL for the file
-            fileUpload
-              .getSignedUrl(options)
-              .then(results => {
-                const url = results[0];
-                resolve(url);
-              })
-            */
-            const url = `https://storage.googleapis.com/${bucket.name}/${fileUpload.name}`; //image url from firebase server
-            resolve(url);
-        });
-
-        blobStream.end(file.buffer);
-    });
-    return prom;
-}
-
 async function getDocumentacoes() {
     const ref = await fb.firebaseApp.firestore().collection("Documentacao").get();
     return ref.docs.map((doc) => {
@@ -138,6 +90,11 @@ api.documentacoes = function (req, res) {
     getDocumentacoes().then(documentacoes => {
         res.render("documentacoes", { documentacoes, error: req.flash("error"), success: req.flash("success") });
     });
+};
+
+
+api.teste = function (req, res) {
+    res.render("teste");
 };
 
 module.exports = api;

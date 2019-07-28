@@ -1,47 +1,70 @@
 <!DOCTYPE html>
 <html lang="pt">
 <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width, initial-scale=1, shrink-to-fit=no" name="viewport">
-    <meta content="ie=edge" http-equiv="x-ua-compatible">
-    <title>Documentação - Especificação para Microsserviços</title>
-    <link href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" rel="stylesheet"/>
+    <meta charset="utf-8"/>
+    <meta
+            name="viewport"
+            content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta http-equiv="x-ua-compatible" content="ie=edge"/>
+    <title>MRS - Microservice Requirements Specifications</title>
+    <link
+            href="//use.fontawesome.com/releases/v5.7.0/css/all.css"
+            rel="stylesheet"
+    />
     <link href="/css/bootstrap.min.css" rel="stylesheet"/>
     <link href="/css/mdb.min.css" rel="stylesheet"/>
     <link href="/css/style.css" rel="stylesheet"/>
-    <style>
-        .md-form {
-            margin-top: 0.5em;
-        }
-    </style>
 </head>
-<body>
 
+<body class="fixed-sn white-skin">
 <header>
-    <nav class="navbar navbar-expand-lg navbar-dark primary-color">
-
-        <a class="navbar-brand" href="#">Documentação</a>
-
-        <button aria-controls="basicExampleNav" aria-expanded="false" aria-label="Menu"
-                class="navbar-toggler"
-                data-target="#basicExampleNav" data-toggle="collapse" type="button">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <div class="collapse navbar-collapse" id="basicExampleNav">
-
-            <ul class="navbar-nav mr-auto">
-                <li class="nav-item">
-                    <a class="nav-link" href="/painel/documentacao">Adicionar
+    <div id="slide-out" class="side-nav sn-bg-5 fixed">
+        <ul class="custom-scrollbar">
+            <li class="logo-sn py-3">
+                <div class="text-center">
+                    <a href="#" class="pl-0"
+                    ><img src="/img/logo.png" class="img-fluid d-block mx-auto"/>
+                        <h2>MRS</h2>
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/painel/documentacoes">Listar</a>
-                </li>
+                </div>
+            </li>
+            <li>
+                <ul class="collapsible collapsible-accordion">
+                    <li>
+                        <a
+                                href="/painel/documentacao"
+                                class="collapsible-header waves-effect"
+                        ><i class="w-fa fas fa-file-signature"></i>Nova
+                            Documentação</a
+                        >
+                    </li>
+                    <li>
+                        <a
+                                href="/painel/documentacoes"
+                                class="collapsible-header waves-effect"
+                        ><i class="w-fa far fa-file-alt"></i>Ver Documentações</a
+                        >
+                    </li>
+                </ul>
+            </li>
+        </ul>
+        <div class="sidenav-bg mask-strong"></div>
+    </div>
 
-            </ul>
+    <nav
+            class="navbar fixed-top navbar-expand-lg scrolling-navbar double-nav"
+    >
+        <div class="float-left">
+            <a href="#" data-activates="slide-out" class="button-collapse"
+            ><i class="fas fa-bars"></i
+            ></a>
         </div>
 
+        <div class="breadcrumb-dn mr-auto">
+            <p>MRS - Microservice Requirements Specifications</p>
+        </div>
     </nav>
-
 </header>
+</body>
+</html>
