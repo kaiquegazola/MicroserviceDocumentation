@@ -1,0 +1,270 @@
+{{> header }}
+<style>
+    .custom-file-label::after {
+        content: ""
+    }
+</style>
+<main>
+    <div class="container-fluid">
+
+        <section class="section team-section">
+
+            <div class="row mb-1">
+                <div class="col-md-12">
+                    <h4 class="h4-responsive mt-1">{{#if
+                            documentacao.modeloProcessoNegocio}}Editando {{documentacao.modeloProcessoNegocio}}{{else}}
+                        Nova Documentação{{/if}}</h4>
+                </div>
+            </div>
+
+            <div class="row text-center text-md-left">
+
+
+                <div class="col-12 my-3">
+
+                    <div class="classic-tabs">
+
+                        <form class="text-center" style="color: #757575;" action="/painel/documentacao"
+                              method="POST">
+                            <div class="tabs-wrapper">
+
+                                <ul class="nav tabs-primary" role="tablist">
+
+                                    <li class="nav-item">
+                                        <a class="nav-link waves-light active waves-effect waves-light"
+                                           data-toggle="tab"
+                                           href="#documentacao"
+                                           role="tab"><i class="fas fa-file-signature fa-2x" aria-hidden="true"></i><br>
+                                            Documentação</a>
+                                    </li>
+
+                                    <li class="nav-item">
+                                        <a class="nav-link waves-light waves-effect waves-light" data-toggle="tab"
+                                           href="#atividade" role="tab"><i
+                                                class="fas fa-chart-line fa-2x" aria-hidden="true"></i><br>
+                                            Atividades</a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <div class="tab-content card">
+                                <div class="tab-pane fade in show active" id="documentacao" role="tabpanel">
+
+                                    <div class="row">
+
+                                        <div class="col-md-6">
+
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <div class="md-form">
+                                                        <label for="modeloProcessoNegocio">Modelo de processo de
+                                                            negócio</label>
+                                                        <input class="form-control" id="modeloProcessoNegocio"
+                                                               name="modeloProcessoNegocio"
+                                                               type="text"
+                                                               value="{{documentacao.modeloProcessoNegocio}}">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-row">
+
+                                                <div class="col">
+                                                    <div class="input-group">
+                                                        <div class="input-group-prepend">
+                                                    <span class="input-group-text"
+                                                          id="inputGroupFileAddon01">Arquivo</span>
+                                                        </div>
+                                                        <div class="custom-file">
+                                                            <input type="file" class="custom-file-input"
+                                                                   id="imgInp"
+                                                                   aria-describedby="inputGroupFileAddon01"
+                                                                   name="arquivo">
+                                                            <label class="custom-file-label" for="inputGroupFile01">Escolha
+                                                                um
+                                                                arquivo...</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-row">
+
+
+                                                <div class="col">
+                                                    <div class="md-form">
+                                                        <label for="versao">Versão do documento</label>
+                                                        <input class="form-control" id="versao" name="versao"
+                                                               type="text"
+                                                               value="{{#if
+                                                                       documentacao.versao}}{{documentacao.versao}}{{else}}v1.0.0+1{{/if}}">
+                                                    </div>
+                                                </div>
+
+
+                                                <div class="col">
+                                                    <div class="md-form">
+                                                        <label for="dataCriacao">Data de Criação</label>
+                                                        <input class="form-control" id="dataCriacao" name="dataCriacao"
+                                                               type="text"
+                                                               value="{{documentacao.dataCriacao}}">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-row">
+
+                                                <div class="col">
+                                                    <div class="md-form">
+                                                        <label for="ferramentaModelagem">Ferramenta de Modelagem</label>
+                                                        <input class="form-control" id="ferramentaModelagem"
+                                                               name="ferramentaModelagem"
+                                                               type="text" value="{{documentacao.ferramentaModelagem}}">
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <div class="md-form">
+                                                        <label for="autor">Autor</label>
+                                                        <input class="form-control" id="autor" name="autor" type="text"
+                                                               value="{{documentacao.autor}}">
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="form-row">
+                                                <div class="col">
+                                                    <div class="md-form">
+                                        <textarea class="md-textarea form-control" id="descricao" name="descricao"
+                                                  rows="3">{{documentacao.descricao}}</textarea>
+                                                        <label for="descricao">Descrição</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 h-100">
+                                            <img src="{{#if
+                                                    documentacao.arquivo}}{{documentacao.arquivo}}{{else}}/img/empty.png{{/if}}"
+                                                 alt="thumbnail" class="img-fluid img-thumbnail" id="img-upload">
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div class="tab-pane fade" id="atividade" role="tabpanel">
+
+                                    {{#if documentacao.id}}
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <a href="/painel/documentacao/{{documentacao.id}}/atividade"
+                                                   class="btn btn-ins float-left"><i
+                                                        class="fas fa-plus left mr-1"></i> Adicionar Atividade</a>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col">
+                                                <hr/>
+                                            </div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                {{#each documentacao.atividades}}
+                                                    <div class="list-group-item list-group-item-action flex-column align-items-start my-2">
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <div class="d-flex w-100 justify-content-between">
+                                                                    <h5 class="font-weight-bold mb-3 mt-2">{{nome}}</h5>
+                                                                </div>
+                                                            </div>
+                                                            <div class="col d-flex justify-content-end">
+                                                                <button type="button"
+                                                                        onclick="excluirAtividade('{{this.documentacaoID}}','{{this.id}}')"
+                                                                        class="btn btn-sm btn-pin">
+                                                                    <i class="fas fa-trash"></i></button>
+                                                                <a href="/painel/documentacao/{{this.documentacaoID}}/atividade/{{this.id}}"
+                                                                   class="btn btn-sm btn-li">
+                                                                    <i class="fas fa-edit"></i>
+                                                                </a>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                {{else}}
+                                                    <p class="float-left">Nenhuma atividade encontrada.</p>
+                                                {{/each}}
+                                            </div>
+
+                                        </div>
+                                    {{else}}
+                                        <p class="float-left">Salve a documentação antes de adicionar atividades.</p>
+                                    {{/if}}
+                                </div>
+
+
+                            </div>
+
+                            <button type="submit" class="btn btn-success">Salvar</button>
+
+                        </form>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </div>
+
+</main>
+
+<script>
+    window.onload = function () {
+
+        $(document).on('change', '.btn-file :file', function () {
+            var input = $(this),
+                    label = input.val().replace(/\\/g, '/').replace(/.*\//, '');
+            input.trigger('fileselect', [label]);
+        });
+
+        $('.btn-file :file').on('fileselect', function (event, label) {
+
+            var input = $(this).parents('.input-group').find(':text'),
+                    log = label;
+
+            if (input.length) {
+                input.val(log);
+            } else {
+                if (log) alert(log);
+            }
+
+        });
+
+        function readURL(input) {
+            if (input.files && input.files[0]) {
+                var reader = new FileReader();
+
+                reader.onload = function (e) {
+                    $('#img-upload').attr('src', e.target.result);
+                };
+
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        $("#imgInp").change(function () {
+            readURL(this);
+        });
+    }
+</script>
+
+{{> footer }}
