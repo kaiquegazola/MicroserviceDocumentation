@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8494598b-788b-471f-8424-dc4fac5412d4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/atividade/atividade.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../api/v1/documentacao.js" beforeDir="false" afterPath="$PROJECT_DIR$/../api/v1/documentacao.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../routes/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/../routes/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentacao.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/documentacao/documentacao.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/documentacoes.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/documentacao/documentacoes.hbs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fragments/footer.hbs" beforeDir="false" afterPath="$PROJECT_DIR$/fragments/footer.hbs" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -26,11 +20,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/documentacao/documentacao.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="578">
-              <caret line="206" column="43" selection-start-line="206" selection-start-column="43" selection-end-line="206" selection-end-column="43" />
-              <folding>
-                <element signature="e#1940#2079#0#HTML" />
-              </folding>
+            <state relative-caret-position="493">
+              <caret line="201" column="38" lean-forward="true" selection-start-line="201" selection-start-column="38" selection-end-line="201" selection-end-column="38" />
             </state>
           </provider>
         </entry>
@@ -38,19 +29,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/atividade/atividade.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="821">
-              <caret line="393" lean-forward="true" selection-start-line="393" selection-end-line="393" />
-              <folding>
-                <element signature="e#711#734#0#HTML" expanded="true" />
-                <element signature="e#5264#6396#0#HTML" />
-                <element signature="e#6430#7914#0#HTML" />
-                <element signature="e#7948#19159#0#HTML" />
-                <element signature="e#19193#23499#0#HTML" />
-                <element signature="e#26279#28710#0#HTML" />
-                <element signature="e#28986#41722#0#HTML" />
-                <element signature="e#12620#12714#0#HTML" />
-                <element signature="e#12771#12865#0#HTML" />
-              </folding>
+            <state relative-caret-position="6681">
+              <caret line="393" selection-start-line="393" selection-end-line="393" />
             </state>
           </provider>
         </entry>
@@ -58,7 +38,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/documentacao/documentacoes.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="467">
+            <state relative-caret-position="1054">
               <caret line="62" column="88" selection-start-line="62" selection-start-column="56" selection-end-line="62" selection-end-column="88" />
             </state>
           </provider>
@@ -67,7 +47,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/fragments/footer.hbs">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="501">
+            <state relative-caret-position="2482">
               <caret line="146" column="70" selection-start-line="146" selection-start-column="70" selection-end-line="146" selection-end-column="70" />
             </state>
           </provider>
@@ -117,6 +97,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -143,7 +124,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -184,18 +164,19 @@
       <option name="presentableId" value="Default" />
       <updated>1564356771327</updated>
       <workItem from="1564356772573" duration="12000" />
-      <workItem from="1564356797376" duration="11424000" />
+      <workItem from="1564356797376" duration="11717000" />
+      <workItem from="1565224394697" duration="80000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="11436000" />
+    <option name="totallyTimeSpent" value="11809000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25266525" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2553305" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -220,55 +201,32 @@
     <option name="version" value="1" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/atividades/atividade.hbs">
+    <entry file="file://$PROJECT_DIR$/atividades/atividade.hbs" />
+    <entry file="file://$PROJECT_DIR$/documentacao/documentacao.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="637">
-          <caret line="648" selection-start-line="648" selection-end-line="648" />
-          <folding>
-            <element signature="e#573#596#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/fragments/footer.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="501">
-          <caret line="146" column="70" selection-start-line="146" selection-start-column="70" selection-end-line="146" selection-end-column="70" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/documentacao/documentacoes.hbs">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="467">
-          <caret line="62" column="88" selection-start-line="62" selection-start-column="56" selection-end-line="62" selection-end-column="88" />
+        <state relative-caret-position="493">
+          <caret line="201" column="38" lean-forward="true" selection-start-line="201" selection-start-column="38" selection-end-line="201" selection-end-column="38" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/atividade/atividade.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="821">
-          <caret line="393" lean-forward="true" selection-start-line="393" selection-end-line="393" />
-          <folding>
-            <element signature="e#711#734#0#HTML" expanded="true" />
-            <element signature="e#5264#6396#0#HTML" />
-            <element signature="e#6430#7914#0#HTML" />
-            <element signature="e#7948#19159#0#HTML" />
-            <element signature="e#19193#23499#0#HTML" />
-            <element signature="e#26279#28710#0#HTML" />
-            <element signature="e#28986#41722#0#HTML" />
-            <element signature="e#12620#12714#0#HTML" />
-            <element signature="e#12771#12865#0#HTML" />
-          </folding>
+        <state relative-caret-position="6681">
+          <caret line="393" selection-start-line="393" selection-end-line="393" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/documentacao/documentacao.hbs">
+    <entry file="file://$PROJECT_DIR$/documentacao/documentacoes.hbs">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="578">
-          <caret line="206" column="43" selection-start-line="206" selection-start-column="43" selection-end-line="206" selection-end-column="43" />
-          <folding>
-            <element signature="e#1940#2079#0#HTML" />
-          </folding>
+        <state relative-caret-position="1054">
+          <caret line="62" column="88" selection-start-line="62" selection-start-column="56" selection-end-line="62" selection-end-column="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fragments/footer.hbs">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2482">
+          <caret line="146" column="70" selection-start-line="146" selection-start-column="70" selection-end-line="146" selection-end-column="70" />
         </state>
       </provider>
     </entry>

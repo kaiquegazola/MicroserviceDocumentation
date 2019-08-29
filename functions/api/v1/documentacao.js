@@ -1,6 +1,8 @@
 const fb = require("../../firebase");
 const Documentacao = require("../../model/Documentacao");
-var path = require('path')
+const fs = require('fs');
+const carbone = require('carbone');
+var path = require('path');
 
 var api = {};
 
@@ -51,6 +53,25 @@ async function deleteDocumentacaoById(id) {
 async function deleteAtividadeById(idDocumentacao, id) {
     const ref = await fb.firebaseApp.firestore().collection("Documentacao").doc(idDocumentacao).collection('atividades').doc(id);
     return ref.delete();
+}
+
+async function downloadDocumentacaoById() {
+    // Data to inject
+    var data = {
+        firstname: 'John',
+        lastname: 'Doe'
+    };
+
+    // Generate a report using the sample template provided by carbone module
+    // This LibreOffice template contains "Hello {d.firstname} {d.lastname} !"
+    // Of course, you can create your own templates!
+    carbone.render('./node_modules/carbone/examples/simple.odt', data, function (err, result) {
+        if (err) {
+            return console.log(err);
+        }
+        // write the result
+        fs.writeFileSync('result.odt', result);
+    });
 }
 
 api.adicionar = function (req, res) {
@@ -161,5 +182,26 @@ api.adicionarAtividade = function (req, res) {
     }
 };
 
+api.download = function (req, res) {
+    if (req.params.id) {
+        getDocumentacaoById(req.params.id).then(documentacao => {
+            if (documentacao) {
+                carbone.render('report_template.odt', documentacao, function(err, result){
+                    if (err) {
+                    return console.log(err);
+                    }
+                    console.log(JSON.stringify(documentacao));
+                    fs.writeFileSync('result.odt', result);
+                    res.download('result.odt');
+                });
+            } else {
+                req.flash("error", "Documentacao não encontrada!");
+                api.documentacoes(req, res);
+            }
+        });
+    } else {
+        res.render("documentacao/documentacao", { title: "Nova documentacao" });
+    }
+};
 
 module.exports = api;
