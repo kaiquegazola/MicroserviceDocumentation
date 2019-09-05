@@ -39,6 +39,63 @@ async function getDocumentacaoById(id) {
     return documentacao;
 }
 
+async function getDocumentacaoByIdToDownload(id) {
+    const ref = await fb.firebaseApp.firestore().collection("Documentacao").doc(id).get();
+    const atividades = await fb.firebaseApp.firestore().collection('Documentacao').doc(id).collection('atividades').get();
+    var documentacao = ref.data();
+    documentacao.id = ref.id;
+    documentacao.atividades = atividades.docs.map((doc) => {
+        var dados = doc.data();
+        //
+        var endPoints = [];
+        for (var key in dados.endPoints) {
+            if (dados.endPoints.hasOwnProperty(key)) {
+                endPoints.push(dados.endPoints[key])
+            }
+        }
+        dados.endPoints = endPoints;
+        //
+        var componentes = [];
+        for (var key in dados.componentes) {
+            if (dados.componentes.hasOwnProperty(key)) {
+                componentes.push(dados.componentes[key])
+            }
+        }
+        dados.componentes = componentes;
+        //
+        var contatos = [];
+        for (var key in dados.contatos) {
+            if (dados.contatos.hasOwnProperty(key)) {
+                contatos.push(dados.contatos[key])
+            }
+        }
+        dados.contatos = contatos;
+        //
+        var roteiros = [];
+        for (var key in dados.roteiros) {
+            if (dados.roteiros.hasOwnProperty(key)) {
+                roteiros.push(dados.roteiros[key])
+            }
+        }
+        dados.roteiros = roteiros;
+        //
+        //
+        var faqs = [];
+        for (var key in dados.faqs) {
+            if (dados.faqs.hasOwnProperty(key)) {
+                faqs.push(dados.faqs[key])
+            }
+        }
+        dados.faqs = faqs;
+        //
+
+        dados.id = doc.id;
+        dados.documentacaoID = documentacao.id;
+        return dados;
+    });
+    return documentacao;
+}
+
 
 async function getAtividadeById(idDocumentacao, id) {
     const ref = await fb.firebaseApp.firestore().collection("Documentacao").doc(idDocumentacao).collection('atividades').doc(id).get();
@@ -182,17 +239,41 @@ api.adicionarAtividade = function (req, res) {
     }
 };
 
+slugify = function (textSlug) {
+    return textSlug.toString().toLowerCase()
+        .replace(/[àÀáÁâÂãäÄÅåª]+/g, 'a')       // Special Characters #1
+        .replace(/[èÈéÉêÊëË]+/g, 'e')       	// Special Characters #2
+        .replace(/[ìÌíÍîÎïÏ]+/g, 'i')       	// Special Characters #3
+        .replace(/[òÒóÓôÔõÕöÖº]+/g, 'o')       	// Special Characters #4
+        .replace(/[ùÙúÚûÛüÜ]+/g, 'u')       	// Special Characters #5
+        .replace(/[ýÝÿŸ]+/g, 'y')       		// Special Characters #6
+        .replace(/[ñÑ]+/g, 'n')       			// Special Characters #7
+        .replace(/[çÇ]+/g, 'c')       			// Special Characters #8
+        .replace(/[ß]+/g, 'ss')       			// Special Characters #9
+        .replace(/[Ææ]+/g, 'ae')       			// Special Characters #10
+        .replace(/[Øøœ]+/g, 'oe')       		// Special Characters #11
+        .replace(/[%]+/g, 'pct')       			// Special Characters #12
+        .replace(/\s+/g, '-')           		// Replace spaces with -
+        .replace(/[^\w\-]+/g, '')       		// Remove all non-word chars
+        .replace(/\-\-+/g, '-')         		// Replace multiple - with single -
+        .replace(/^-+/, '')             		// Trim - from start of text
+        .replace(/-+$/, '');            		// Trim - from end of text
+};
+
 api.download = function (req, res) {
     if (req.params.id) {
-        getDocumentacaoById(req.params.id).then(documentacao => {
+        getDocumentacaoByIdToDownload(req.params.id).then(documentacao => {
             if (documentacao) {
-                carbone.render('report_template.odt', documentacao, function(err, result){
+                carbone.render('report_template.odt', documentacao, function (err, result) {
                     if (err) {
-                    return console.log(err);
+                        return console.log(err);
                     }
-                    console.log(JSON.stringify(documentacao));
-                    fs.writeFileSync('result.odt', result);
-                    res.download('result.odt');
+                    fs.writeFileSync('/tmp/result.odt', result);
+                    res.download('/tmp/result.odt', slugify(documentacao.modeloProcessoNegocio) + '-' + slugify(documentacao.dataCriacao) + '-' + slugify(documentacao.versao) + '.odt');
+                    /*
+                   fs.writeFileSync('result.odt', result);
+                    res.download('result.odt', slugify(documentacao.modeloProcessoNegocio) + '-' + slugify(documentacao.dataCriacao) + '-' + slugify(documentacao.versao) + '.odt');
+                    */
                 });
             } else {
                 req.flash("error", "Documentacao não encontrada!");
